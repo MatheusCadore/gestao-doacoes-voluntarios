@@ -3,15 +3,18 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-// Permite receber JSON nas requisições
+app.use(cors());
 app.use(express.json());
 
-// Rota de teste
-app.get("/", (req, res) => {
-    res.json({
-        mensagem: "Servidor funcionando!"
+// Rotas
+app.use("/api/campanhas", campanhaRoutes);
+
+app.use((req, res) => {
+    return res.status(404).json({
+        erro: "Rota não encontrada"
     });
 });
+
 
 // Inicializa o servidor
 app.listen(PORT, () => {
