@@ -3,7 +3,7 @@ import {
     buscarCampanhaPorId
 } from "../services/campanhaService.js";
 
-export function listarCampanhasController(res) {
+export function listarCampanhasController(req, res) {
     const campanhas = listarCampanhas();
 
     return res.status(200).json(campanhas);
