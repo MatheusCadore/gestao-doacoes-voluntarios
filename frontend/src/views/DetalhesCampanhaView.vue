@@ -44,8 +44,8 @@
         <router-link 
           :to="`/ajudar/${campanha.id}?tipo=voluntario`" 
           class="btn btn-success btn-lg flex-grow-1"
-          :class="{ 'disabled': !campanha.precisaVoluntarios }"
-          :aria-disabled="!campanha.precisaVoluntarios">
+          :class="{ 'disabled': !campanha.necessitaVoluntarios }"
+          :aria-disabled="!campanha.necessitaVoluntarios">
           Quero ser voluntário
         </router-link>
       </div>
