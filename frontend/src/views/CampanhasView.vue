@@ -62,8 +62,8 @@
 
               <!-- Indicador de Voluntários -->
               <div class="mb-4">
-                <span class="badge w-100 py-2 rounded-pill fw-normal" :class="campanha.precisaVoluntarios ? 'bg-success bg-opacity-10 text-success' : 'bg-secondary bg-opacity-10 text-secondary'">
-                  {{ campanha.precisaVoluntarios ? '✨ Precisa de Voluntários' : 'Apenas Arrecadação' }}
+                <span class="badge w-100 py-2 rounded-pill fw-normal" :class="campanha.necessitaVoluntarios ? 'bg-success bg-opacity-10 text-success' : 'bg-secondary bg-opacity-10 text-secondary'">
+                  {{ campanha.necessitaVoluntarios ? '✨ Precisa de Voluntários' : 'Apenas Arrecadação' }}
                 </span>
               </div>
 

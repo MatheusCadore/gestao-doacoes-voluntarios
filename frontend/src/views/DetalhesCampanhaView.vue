@@ -32,8 +32,8 @@
         <li v-for="item in campanha.itensNecessarios" :key="item">{{ item }}</li>
       </ul>
 
-      <div class="alert mt-3" :class="campanha.precisaVoluntarios ? 'alert-success' : 'alert-secondary'">
-        {{ campanha.precisaVoluntarios ? 'Esta campanha está aceitando inscrições de voluntários.' : 'Esta campanha não necessita de voluntários no momento.' }}
+      <div class="alert mt-3" :class="campanha.necessitaVoluntarios ? 'alert-success' : 'alert-secondary'">
+        {{ campanha.necessitaVoluntarios ? 'Esta campanha está aceitando inscrições de voluntários.' : 'Esta campanha não necessita de voluntários no momento.' }}
       </div>
 
       <div class="d-flex gap-3 mt-4">
