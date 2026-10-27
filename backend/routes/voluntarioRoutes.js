@@ -1,9 +1,10 @@
 import { Router } from "express";
 
-import { criarVoluntarioController } from "../controllers/voluntarioController.js";
+import { criarVoluntarioController, listarVoluntariosController } from "../controllers/voluntarioController.js";
 
 const router = Router();
 
 router.post("/", criarVoluntarioController);
+router.get("/", listarVoluntariosController);
 
 export default router;

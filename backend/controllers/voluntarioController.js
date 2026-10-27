@@ -1,5 +1,5 @@
 import { buscarCampanhaPorId } from "../services/campanhaService.js";
-import { criarVoluntario } from "../services/voluntarioService.js";
+import { criarVoluntario, listarVoluntarios } from "../services/voluntarioService.js";
 
 const DISPONIBILIDADES = [
     "Manhã",
@@ -81,4 +81,8 @@ export function criarVoluntarioController(req, res) {
     });
 
     return res.status(201).json(voluntario);
+}
+
+export function listarVoluntariosController(req, res) {
+    return res.status(200).json(listarVoluntarios());
 }

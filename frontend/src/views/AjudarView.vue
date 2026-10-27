@@ -169,7 +169,10 @@ export default {
           body: JSON.stringify(payload)
         })
 
-        if (!response.ok) throw new Error('Não foi possível registrar sua participação. Tente novamente.')
+        if (!response.ok) {
+          const erro = await response.json().catch(() => ({}))
+          throw new Error(erro.erro || erro.mensagem || `Erro HTTP ${response.status} ao registrar participação.`)
+        }
         
         this.sucesso = true
       } catch (err) {
