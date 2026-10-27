@@ -48,7 +48,9 @@ export function criarDoacaoController(req, res) {
         });
     }
 
-    if (!Number.isInteger(quantidade) || quantidade <= 0) {
+    const qtd = Number(quantidade)
+
+    if (!Number.isInteger(qtd) || quantidade <= 0) {
         return res.status(400).json({
             erro: "Quantidade inválida"
         });

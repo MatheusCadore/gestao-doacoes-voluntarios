@@ -15,3 +15,7 @@ export function criarDoacao(dados) {
 
     return novaDoacao;
 }
+
+export function listarDoacoes() {
+    return doacoes;
+}

@@ -14,3 +14,7 @@ export function criarVoluntario(dados) {
 
     return novoVoluntario;
 }
+
+export function listarVoluntarios() {
+    return voluntarios;
+}
