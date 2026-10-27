@@ -1,8 +1,10 @@
 import { doacoes } from "../data/doacoes.js";
 
+let proximoId = 1;
+
 export function criarDoacao(dados) {
     const novaDoacao = {
-        id: doacoes.length + 1,
+        id: proximoId++,
         campanhaId: dados.campanhaId,
         nome: dados.nome,
         telefone: dados.telefone,

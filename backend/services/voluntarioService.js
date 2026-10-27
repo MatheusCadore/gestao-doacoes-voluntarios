@@ -1,8 +1,10 @@
 import { voluntarios } from "../data/voluntarios.js";
 
+let proximoId = 1;
+
 export function criarVoluntario(dados) {
     const novoVoluntario = {
-        id: voluntarios.length + 1,
+        id: proximoId++,
         campanhaId: dados.campanhaId,
         nome: dados.nome,
         telefone: dados.telefone,

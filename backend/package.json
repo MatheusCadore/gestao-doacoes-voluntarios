@@ -2,9 +2,10 @@
   "name": "gestao-doacoes-voluntarios",
   "version": "1.0.0",
   "description": "Aplicação web Full-Stack para gestão de campanhas de doações e voluntariado em situações de enchentes, desenvolvida com Vue.js 3, Node.js e Express.js. Projeto acadêmico da UNIVALI.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "repository": {
     "type": "git",

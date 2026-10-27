@@ -84,5 +84,10 @@ export function criarVoluntarioController(req, res) {
 }
 
 export function listarVoluntariosController(req, res) {
-    return res.status(200).json(listarVoluntarios());
+    const lista = listarVoluntarios().map(voluntario => ({
+        ...voluntario,
+        campanhaTitulo: buscarCampanhaPorId(voluntario.campanhaId).titulo
+    }));
+
+    return res.status(200).json(lista);
 }

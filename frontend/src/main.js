@@ -8,7 +8,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 const app = createApp(App)
 
-// Registar o router na aplicação
+// Registrar o router na aplicação
 app.use(router)
 
 app.mount('#app')

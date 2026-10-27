@@ -1,5 +1,5 @@
 import { buscarCampanhaPorId } from "../services/campanhaService.js";
-import { criarDoacao } from "../services/doacaoService.js";
+import { criarDoacao, listarDoacoes } from "../services/doacaoService.js";
 
 const TIPOS_ITEM = [
     "Água",
@@ -50,7 +50,7 @@ export function criarDoacaoController(req, res) {
 
     const qtd = Number(quantidade)
 
-    if (!Number.isInteger(qtd) || quantidade <= 0) {
+    if (!Number.isInteger(qtd) || qtd <= 0) {
         return res.status(400).json({
             erro: "Quantidade inválida"
         });
@@ -64,14 +64,29 @@ export function criarDoacaoController(req, res) {
         });
     }
 
+    if (!campanha.itensNecessarios.includes(tipoItem)) {
+        return res.status(400).json({
+            erro: "Esta campanha não está arrecadando este item"
+        });
+    }
+
     const doacao = criarDoacao({
         campanhaId: id,
         nome: nome.trim(),
         telefone: telefone.trim(),
         tipoItem: tipoItem,
-        quantidade: quantidade,
+        quantidade: qtd,
         descricaoAdicional: typeof descricaoAdicional === "string" ? descricaoAdicional.trim() : ""
     });
 
     return res.status(201).json(doacao);
+}
+
+export function listarDoacoesController(req, res) {
+    const lista = listarDoacoes().map(doacao => ({
+        ...doacao,
+        campanhaTitulo: buscarCampanhaPorId(doacao.campanhaId).titulo
+    }));
+
+    return res.status(200).json(lista);
 }

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" font-family="Arial, Helvetica, sans-serif" font-size="13">
+  <rect width="800" height="560" fill="#ffffff"/>
+  <rect x="10" y="10" width="780" height="540" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- Navbar -->
+  <rect x="10" y="10" width="780" height="44" fill="#eeeeee" stroke="#333"/>
+  <text x="30" y="37" font-weight="bold">SOS Enchentes</text>
+  <text x="520" y="37" text-decoration="underline">Campanhas</text>
+  <text x="610" y="37" text-decoration="underline">Doações</text>
+  <text x="685" y="37" text-decoration="underline">Voluntários</text>
+
+  <!-- Cabeçalho -->
+  <text x="400" y="92" text-anchor="middle" font-size="22" font-weight="bold">Ajude famílias afetadas</text>
+  <rect x="220" y="104" width="360" height="10" fill="#cccccc"/>
+  <rect x="270" y="120" width="260" height="10" fill="#cccccc"/>
+
+  <!-- Card 1 -->
+  <g>
+    <rect x="40" y="155" width="230" height="300" fill="#fafafa" stroke="#333"/>
+    <text x="55" y="180" fill="#555">📍 Cidade • Bairro</text>
+    <text x="55" y="206" font-weight="bold" font-size="15">Título da campanha</text>
+    <rect x="55" y="220" width="200" height="8" fill="#cccccc"/>
+    <rect x="55" y="234" width="200" height="8" fill="#cccccc"/>
+    <rect x="55" y="248" width="140" height="8" fill="#cccccc"/>
+    <text x="55" y="285" font-size="11" fill="#555">ITENS PRIORITÁRIOS:</text>
+    <rect x="55" y="295" width="50" height="20" rx="4" fill="none" stroke="#333"/><text x="80" y="309" text-anchor="middle" font-size="11">Água</text>
+    <rect x="110" y="295" width="70" height="20" rx="4" fill="none" stroke="#333"/><text x="145" y="309" text-anchor="middle" font-size="11">Alimentos</text>
+    <rect x="55" y="335" width="200" height="26" rx="13" fill="#e6e6e6" stroke="#333"/>
+    <text x="155" y="352" text-anchor="middle" font-size="12">Precisa de Voluntários</text>
+    <rect x="55" y="400" width="200" height="36" rx="4" fill="#333"/>
+    <text x="155" y="423" text-anchor="middle" fill="#fff" font-weight="bold">Ver detalhes e ajudar</text>
+  </g>
+
+  <!-- Card 2 -->
+  <g>
+    <rect x="285" y="155" width="230" height="300" fill="#fafafa" stroke="#333"/>
+    <text x="300" y="180" fill="#555">📍 Cidade • Bairro</text>
+    <text x="300" y="206" font-weight="bold" font-size="15">Título da campanha</text>
+    <rect x="300" y="220" width="200" height="8" fill="#cccccc"/>
+    <rect x="300" y="234" width="160" height="8" fill="#cccccc"/>
+    <text x="300" y="285" font-size="11" fill="#555">ITENS PRIORITÁRIOS:</text>
+    <rect x="300" y="295" width="60" height="20" rx="4" fill="none" stroke="#333"/><text x="330" y="309" text-anchor="middle" font-size="11">Roupas</text>
+    <rect x="300" y="335" width="200" height="26" rx="13" fill="#e6e6e6" stroke="#333"/>
+    <text x="400" y="352" text-anchor="middle" font-size="12">Precisa de Voluntários</text>
+    <rect x="300" y="400" width="200" height="36" rx="4" fill="#333"/>
+    <text x="400" y="423" text-anchor="middle" fill="#fff" font-weight="bold">Ver detalhes e ajudar</text>
+  </g>
+
+  <!-- Card 3 -->
+  <g>
+    <rect x="530" y="155" width="230" height="300" fill="#fafafa" stroke="#333"/>
+    <text x="545" y="180" fill="#555">📍 Cidade • Bairro</text>
+    <text x="545" y="206" font-weight="bold" font-size="15">Título da campanha</text>
+    <rect x="545" y="220" width="200" height="8" fill="#cccccc"/>
+    <rect x="545" y="234" width="120" height="8" fill="#cccccc"/>
+    <text x="545" y="285" font-size="11" fill="#555">ITENS PRIORITÁRIOS:</text>
+    <rect x="545" y="295" width="70" height="20" rx="4" fill="none" stroke="#333"/><text x="580" y="309" text-anchor="middle" font-size="11">Alimentos</text>
+    <rect x="545" y="335" width="200" height="26" rx="13" fill="#ffffff" stroke="#333" stroke-dasharray="4 3"/>
+    <text x="645" y="352" text-anchor="middle" font-size="12">Apenas Arrecadação</text>
+    <rect x="545" y="400" width="200" height="36" rx="4" fill="#333"/>
+    <text x="645" y="423" text-anchor="middle" fill="#fff" font-weight="bold">Ver detalhes e ajudar</text>
+  </g>
+
+  <!-- Anotações -->
+  <text x="40" y="490" font-size="12" fill="#555">• Cards gerados com v-for a partir de GET /api/campanhas</text>
+  <text x="40" y="510" font-size="12" fill="#555">• Estados: spinner "Carregando...", alerta de erro, alerta "Nenhuma campanha encontrada"</text>
+  <text x="40" y="530" font-size="12" fill="#555">• Botão leva para /campanhas/:id (Tela 2)</text>
+</svg>

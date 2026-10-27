@@ -15,7 +15,7 @@
       <!-- Estados da Interface -->
       <div v-if="loading" class="text-center py-5">
         <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
-        <p class="mt-3 text-muted fw-medium">A carregar campanhas disponíveis...</p>
+        <p class="mt-3 text-muted fw-medium">Carregando campanhas disponíveis...</p>
       </div>
 
       <div v-else-if="error" class="alert alert-danger text-center shadow-sm border-0 py-4" role="alert">
@@ -25,7 +25,7 @@
 
       <div v-else-if="campanhas.length === 0" class="alert alert-warning text-center shadow-sm border-0 py-4" role="alert">
         <h5 class="fw-bold">Nenhuma campanha encontrada</h5>
-        <p class="mb-0">Não existem campanhas ativas de momento.</p>
+        <p class="mb-0">Não existem campanhas ativas no momento.</p>
       </div>
 
       <!-- Listagem em Cards -->
@@ -80,6 +80,8 @@
 </template>
 
 <script>
+import { API_URL } from '../services/api.js'
+
 export default {
   name: 'CampanhasView',
   data() {
@@ -91,11 +93,11 @@ export default {
   },
   async mounted() {
     try {
-      const response = await fetch('http://localhost:3000/api/campanhas')
+      const response = await fetch(`${API_URL}/campanhas`)
       if (!response.ok) throw new Error('Não foi possível carregar as campanhas.')
       this.campanhas = await response.json()
     } catch (err) {
-      this.error = 'Erro ao ligar ao servidor. Certifique-se de que o backend está a correr na porta 3000.'
+      this.error = 'Erro ao conectar ao servidor. Verifique se o backend está rodando na porta 3000.'
     } finally {
       this.loading = false
     }

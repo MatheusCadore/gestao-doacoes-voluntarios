@@ -29,15 +29,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr
-                        v-for="(item, index) in registros"
-                        :key="item.id ?? index"
-                    >
-                        <td>{{ item.campanhaId ?? "—" }}</td>
-                        <td>{{ item.nome ?? "—" }}</td>
-                        <td>{{ item.telefone ?? "—" }}</td>
-                        <td>{{ item.disponibilidade ?? "—" }}</td>
-                        <td>{{ item.atividadeDesejada ?? "—" }}</td>
+                    <tr v-for="item in registros" :key="item.id">
+                        <td>{{ item.campanhaTitulo }}</td>
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.telefone }}</td>
+                        <td>{{ item.disponibilidade }}</td>
+                        <td>{{ item.atividadeDesejada }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -45,33 +42,36 @@
     </main>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
+<script>
+import { API_URL } from "../services/api.js";
 
-const registros = ref([]);
-const carregando = ref(false);
-const erro = ref("");
+export default {
+    name: "VoluntariosView",
+    data() {
+        return {
+            registros: [],
+            carregando: false,
+            erro: ""
+        };
+    },
+    mounted() {
+        this.carregar();
+    },
+    methods: {
+        async carregar() {
+            this.carregando = true;
+            this.erro = "";
 
-async function carregar() {
-    carregando.value = true;
-    erro.value = "";
-    try {
-        const resposta = await fetch("http://localhost:3000/api/voluntarios");
-        if (!resposta.ok)
-            throw new Error(
-                `Falha na consulta (HTTP ${resposta.status}). Verifique se existe uma rota GET /api/voluntarios no backend.`,
-            );
-        const dados = await resposta.json();
-        if (!Array.isArray(dados))
-            throw new Error(
-                "A API não retornou uma lista. Verifique o formato da resposta GET.",
-            );
-        registros.value = dados;
-    } catch (e) {
-        erro.value = e.message;
-    } finally {
-        carregando.value = false;
+            try {
+                const resposta = await fetch(`${API_URL}/voluntarios`);
+                if (!resposta.ok) throw new Error("Resposta inválida do servidor");
+                this.registros = await resposta.json();
+            } catch (e) {
+                this.erro = "Erro ao carregar os voluntários. Verifique se o backend está rodando.";
+            } finally {
+                this.carregando = false;
+            }
+        }
     }
-}
-onMounted(carregar);
+};
 </script>

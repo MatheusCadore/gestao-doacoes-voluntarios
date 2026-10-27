@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { API_URL } from '../services/api.js'
+
 export default {
   name: 'DetalhesCampanhaView',
   props: ['id'],
@@ -64,18 +66,32 @@ export default {
       error: null
     }
   },
-  async mounted() {
-    try {
-      const response = await fetch(`http://localhost:3000/api/campanhas/${this.id}`)
-      if (!response.ok) {
-        if (response.status === 404) throw new Error('Campanha não encontrada.')
-        throw new Error('Erro ao buscar detalhes.')
+  mounted() {
+    this.carregarCampanha()
+  },
+  watch: {
+    // Se o id da rota mudar sem sair da página, busca a campanha novamente
+    id() {
+      this.carregarCampanha()
+    }
+  },
+  methods: {
+    async carregarCampanha() {
+      this.loading = true
+      this.error = null
+
+      try {
+        const response = await fetch(`${API_URL}/campanhas/${this.id}`)
+        if (!response.ok) {
+          if (response.status === 404) throw new Error('Campanha não encontrada.')
+          throw new Error('Erro ao buscar detalhes.')
+        }
+        this.campanha = await response.json()
+      } catch (err) {
+        this.error = err.message
+      } finally {
+        this.loading = false
       }
-      this.campanha = await response.json()
-    } catch (err) {
-      this.error = err.message
-    } finally {
-      this.loading = false
     }
   }
 }
