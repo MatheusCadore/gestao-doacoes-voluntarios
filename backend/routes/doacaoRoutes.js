@@ -1,10 +1,11 @@
 import { Router } from "express";
 
-import { criarDoacaoController, listarDoacoesController } from "../controllers/doacaoController.js";
+import { criarDoacaoController } from "../controllers/doacaoController.js";
+import { listarDoacoes } from "../services/doacaoService.js";
 
 const router = Router();
 
 router.post("/", criarDoacaoController);
-router.get("/", listarDoacoesController);
+router.get("/", listarDoacoes)
 
 export default router;

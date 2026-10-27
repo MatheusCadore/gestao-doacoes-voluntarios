@@ -1,5 +1,5 @@
 import { buscarCampanhaPorId } from "../services/campanhaService.js";
-import { criarDoacao, listarDoacoes } from "../services/doacaoService.js";
+import { criarDoacao } from "../services/doacaoService.js";
 
 const TIPOS_ITEM = [
     "Água",
@@ -48,7 +48,9 @@ export function criarDoacaoController(req, res) {
         });
     }
 
-    if (!Number.isInteger(quantidade) || quantidade <= 0) {
+    const qtd = Number(quantidade)
+
+    if (!Number.isInteger(qtd) || quantidade <= 0) {
         return res.status(400).json({
             erro: "Quantidade inválida"
         });
@@ -72,8 +74,4 @@ export function criarDoacaoController(req, res) {
     });
 
     return res.status(201).json(doacao);
-}
-
-export function listarDoacoesController(req, res) {
-    return res.status(200).json(listarDoacoes());
 }
